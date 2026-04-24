@@ -50,7 +50,7 @@ namespace RetailOrdering.API.Controllers
             return Ok(new { success = true, message = "Valid promotion.", data = promo });
         }
 
-        // ← NEW: Admin creates a usable discount code
+        //  Admin creates a usable discount code
         [HttpPost("discount-code"), Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateDiscountCode(DiscountCode dto)
         {
@@ -59,7 +59,7 @@ namespace RetailOrdering.API.Controllers
             return Ok(ApiResponse<DiscountCode>.Ok(dto));
         }
 
-        // ← NEW: Get all discount codes (Admin)
+        // Get all discount codes (Admin)
         [HttpGet("discount-codes"), Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetDiscountCodes() =>
             Ok(ApiResponse<List<DiscountCode>>.Ok(await _db.DiscountCodes.ToListAsync()));

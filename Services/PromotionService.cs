@@ -26,8 +26,7 @@ namespace RetailOrdering.API.Services
         public async Task<DiscountCode?> ValidateCodeAsync(string code) =>
             await _db.DiscountCodes.FirstOrDefaultAsync(d =>
                 d.Code == code && d.IsActive && d.ExpiresAt > DateTime.UtcNow && d.UsageCount < d.MaxUsage);
-
-        // ✅ New — validates promotion by Code field
+         // validates promotion by Code 
         public async Task<Promotion?> ValidatePromotionCodeAsync(string code) =>
             await _db.Promotions.FirstOrDefaultAsync(p =>
                 p.Code == code && p.IsActive && p.EndDate >= DateTime.UtcNow);
