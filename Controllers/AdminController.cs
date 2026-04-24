@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using RetailOrdering.API.DTOs;
 using RetailOrdering.API.DTOs.Auth;
 using RetailOrdering.API.Helpers;
-using RetailOrdering.API.Interfaces;   // ✅ Add this using
+using RetailOrdering.API.Interfaces;  
 using RetailOrdering.API.Services;
 
 namespace RetailOrdering.API.Controllers;
@@ -13,8 +13,8 @@ namespace RetailOrdering.API.Controllers;
 [Authorize(Roles = "Admin")]
 public class AdminController : ControllerBase
 {
-    private readonly IAdminService _admin;                          // ✅ Changed
-    public AdminController(IAdminService admin) => _admin = admin; // ✅ Changed
+    private readonly IAdminService _admin;                          
+    public AdminController(IAdminService admin) => _admin = admin; 
 
     [HttpGet("dashboard")]
     public async Task<IActionResult> Dashboard() =>

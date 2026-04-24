@@ -10,8 +10,7 @@
     public DateTime EndDate { get; set; }
     public bool IsActive { get; set; }
 
-    // ← Add these constraints
-    public decimal MinOrderAmount { get; set; } = 0;      // min cart value to apply
+    public decimal MinOrderAmount { get; set; } = 0;     
     public int MaxUsagePerUser { get; set; } = 1;         // one use per user
     public int TotalUsageCount { get; set; } = 0;         // how many times used total
     public int MaxTotalUsage { get; set; } = 100;         // max total uses

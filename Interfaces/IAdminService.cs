@@ -5,7 +5,7 @@ namespace RetailOrdering.API.Interfaces;
 public interface IAdminService
 {
     Task<AdminDashboardDto> GetDashboardAsync();
-    Task<List<AdminUserDto>> GetUsersAsync();          // was GetAllUsersAsync
-    Task SetUserActiveAsync(int userId, bool active);  // was ActivateUserAsync
-    Task ChangeUserRoleAsync(int userId, string role); // was UpdateUserRoleAsync
+    Task<List<AdminUserDto>> GetUsersAsync();         
+    Task SetUserActiveAsync(int userId, bool active);  
+    Task ChangeUserRoleAsync(int userId, string role); 
 }
