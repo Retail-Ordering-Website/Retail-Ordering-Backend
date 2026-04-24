@@ -2,7 +2,7 @@
 using RetailOrdering.API.DTOs.Product;
 using RetailOrdering.API.Interfaces;
 using RetailOrdering.API.Models;
-
+using Microsoft.EntityFrameworkCore;
 namespace RetailOrdering.API.Services
 {
     public class CategoryService : ICategoryService
