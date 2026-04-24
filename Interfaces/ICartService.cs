@@ -1,6 +1,12 @@
-﻿namespace RetailOrdering.API.Interfaces
+﻿using RetailOrdering.API.DTOs.Order;
+
+namespace RetailOrdering.API.Interfaces
 {
-    public class ICartService
+    public interface ICartService
     {
+        Task<CartDto> GetCartAsync(int userId);
+        Task AddToCartAsync(int userId, CartItemDto dto);
+        Task RemoveFromCartAsync(int userId, int productId);
+        Task ClearCartAsync(int userId);
     }
 }

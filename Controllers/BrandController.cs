@@ -13,6 +13,15 @@ namespace RetailOrdering.API.Controllers
     public class BrandController : ControllerBase
     {
         private readonly IInventoryService _inv;
+<<<<<<< HEAD
+        public BrandController(IInventoryService inv) => _inv = inv;
+
+        [HttpGet("inventory")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetInventory() =>
+            Ok(ApiResponse<List<InventoryDto>>.Ok(await _inv.GetInventoryAsync()));
+
+=======
         public BrandController(IInventoryService inv)
         {
             _inv = inv;
@@ -28,6 +37,7 @@ namespace RetailOrdering.API.Controllers
 
 
         // Update the Stock of the Product
+>>>>>>> 64f91dfe048a07811fb5536c2ebc5de13f4a565c
         [HttpPatch("stock")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateStock(StockUpdateDto dto)
@@ -36,6 +46,21 @@ namespace RetailOrdering.API.Controllers
             return Ok(ApiResponse<string>.Ok("Stock updated"));
         }
 
+<<<<<<< HEAD
+        [HttpGet]
+        public async Task<IActionResult> GetBrands() =>
+            Ok(ApiResponse<List<Brand>>.Ok(await _inv.GetBrandsAsync()));
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> CreateBrand(BrandDto dto) =>
+            Ok(ApiResponse<Brand>.Ok(await _inv.CreateBrandAsync(dto)));
+
+        [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> UpdateBrand(int id, BrandDto dto) =>
+            Ok(ApiResponse<Brand>.Ok(await _inv.UpdateBrandAsync(id, dto)));
+=======
 
         // Crud Operations For Brand
         [HttpGet]
@@ -59,6 +84,7 @@ namespace RetailOrdering.API.Controllers
         {
             return Ok(ApiResponse<Brand>.Ok(await _inv.UpdateBrandAsync(id, dto)));
         }
+>>>>>>> 64f91dfe048a07811fb5536c2ebc5de13f4a565c
 
         [HttpDelete("{id}")]
         [Authorize(Roles = "Admin")]
@@ -66,7 +92,12 @@ namespace RetailOrdering.API.Controllers
         {
             await _inv.DeleteBrandAsync(id);
             return Ok(ApiResponse<string>.Ok("Brand deleted"));
+<<<<<<< HEAD
+        }
+    }
+=======
         }
 
     }
+>>>>>>> 64f91dfe048a07811fb5536c2ebc5de13f4a565c
 }
