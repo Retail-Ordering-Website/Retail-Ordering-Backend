@@ -1,6 +1,9 @@
-﻿namespace RetailOrdering.API.Interfaces
+﻿using RetailOrdering.API.DTOs.Order;
+
+namespace RetailOrdering.API.Interfaces
 {
-    public class IHistoryService
+    public interface IHistoryService
     {
+        Task<List<OrderDto>> GetHistoryAsync(int userId);
     }
 }
