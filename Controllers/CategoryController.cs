@@ -1,5 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RetailOrdering.API.DTOs.Product;
+using RetailOrdering.API.Helpers;
+using RetailOrdering.API.Interfaces;
 
 namespace RetailOrdering.API.Controllers
 {
@@ -7,5 +11,9 @@ namespace RetailOrdering.API.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
+        private readonly ICategoryService _cats;
+        public CategoryController(ICategoryService cats) => _cats = cats;
+        [HttpGet] public async Task<IActionResult> GetAll() => Ok(ApiResponse<List<CategoryDto>>.Ok(await _cats.GetAllAsync()));
+        [HttpPost, Authorize(Roles = "Admin")] public async Task<IActionResult> Create(CategoryDto dto) => Ok(ApiResponse<CategoryDto>.Ok(await _cats.CreateAsync(dto)));
     }
 }
