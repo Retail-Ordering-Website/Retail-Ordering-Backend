@@ -56,3 +56,4 @@ namespace RetailOrdering.API.Controllers
             return Ok(ApiResponse<string>.Ok("Status updated"));
         }
     }
+}
