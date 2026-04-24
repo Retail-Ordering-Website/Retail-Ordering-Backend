@@ -23,7 +23,7 @@ namespace RetailOrdering.API.Services
             _db.LoyaltyPoints.Add(new LoyaltyPoint
             {
                 UserId = userId,
-                Points = -points,    // negative = deduction
+                Points = -points,   
                 Reason = reason
             });
             await _db.SaveChangesAsync();

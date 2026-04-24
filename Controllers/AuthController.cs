@@ -2,7 +2,7 @@
 using RetailOrdering.API.DTOs;
 using RetailOrdering.API.DTOs.Auth;
 using RetailOrdering.API.Helpers;
-using RetailOrdering.API.Interfaces;   // ✅ Add this using
+using RetailOrdering.API.Interfaces;   
 
 namespace RetailOrdering.API.Controllers;
 
@@ -10,8 +10,8 @@ namespace RetailOrdering.API.Controllers;
 [Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
-    private readonly IAuthService _auth;                          // ✅ Changed
-    public AuthController(IAuthService auth) => _auth = auth;    // ✅ Changed
+    private readonly IAuthService _auth;                          
+    public AuthController(IAuthService auth) => _auth = auth;    
 
     [HttpPost("register")]
     public async Task<IActionResult> Register(RegisterDto dto) =>
